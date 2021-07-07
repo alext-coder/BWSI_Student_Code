@@ -5,9 +5,11 @@ import random
 import sys
 import subprocess
 import struct
+import pdb
 
 # Suppress hello from pygame so that stdout is clean
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+os.environ['SDL_AUDIODRIVER'] = 'dsp'
 import pygame  # noqa
 
 # The time step of the simulation. 60Hz is chosen to work well on most displays that are 60Hz.
@@ -143,7 +145,7 @@ class Camera(Entity):
         # multiple places at once.
         return ((projected_x, projected_y), (projected_x + SCREEN_WIDTH, projected_y))
 
-    def scale(self, distance)
+    def scale(self, distance):
         return distance * self._scale_inv
 
 
